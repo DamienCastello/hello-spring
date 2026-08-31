@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
+    private final HelloService service;
 
-    @Autowired
-    private HelloService service;
+    public HelloController(HelloService service){
+        this.service = service;
+    }
 
     @GetMapping
     public String direHello(){
