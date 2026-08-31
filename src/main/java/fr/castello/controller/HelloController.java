@@ -1,4 +1,4 @@
-package fr.castello.hello.controller;
+package fr.castello.controller;
 
 import fr.castello.hello.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
