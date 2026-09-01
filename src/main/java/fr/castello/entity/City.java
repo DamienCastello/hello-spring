@@ -2,16 +2,16 @@ package fr.castello.entity;
 
 import java.util.Objects;
 
-public class Ville {
+public class City {
     private long id;
-    private String nom;
+    private String name;
     private int population;
 
     private static int compteur = 1;
 
-    public Ville(String nom, int population) {
+    public City(String name, int population) {
         this.id = compteur++;
-        this.nom = nom;
+        this.name = name;
         this.population = population;
     }
 
@@ -27,30 +27,30 @@ public class Ville {
         this.population = population;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Ville ville = (Ville) o;
-        return id == ville.id && population == ville.population && Objects.equals(nom, ville.nom);
+        City city = (City) o;
+        return id == city.id && population == city.population && Objects.equals(name, city.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nom, population);
+        return Objects.hash(id, name, population);
     }
 
     @Override
     public String toString() {
         return "Ville{" +
-                "nom='" + nom + '\'' +
+                "name='" + name + '\'' +
                 ", population=" + population +
                 '}';
     }
