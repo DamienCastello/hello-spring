@@ -2,7 +2,10 @@ package fr.castello.controller;
 
 import fr.castello.entity.City;
 import jakarta.annotation.PostConstruct;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -97,7 +100,7 @@ public class CityController implements CityControllerDoc {
 
 
     @PostMapping
-    public ResponseEntity<String> createCity(@RequestBody City city) throws FunctionalException {
+    public ResponseEntity<String> createCity(@Valid @RequestBody City city) throws FunctionalException {
 
         // Validation du nom avant de l'utiliser
         if (city.getName() == null || city.getName().length() < 3) {
@@ -129,6 +132,7 @@ public class CityController implements CityControllerDoc {
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCity(
+            @Valid
             @PathVariable Long id,
             @RequestBody City city
     ) throws FunctionalException {

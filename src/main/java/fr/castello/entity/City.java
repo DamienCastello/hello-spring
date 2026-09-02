@@ -1,10 +1,17 @@
 package fr.castello.entity;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 import java.util.Objects;
 
 public class City {
     private long id;
+    @NotBlank
+    @Size(min = 2, message = "Le nom de la ville est non nul et possède au moins 2 caractères")
     private String name;
+    @Min(value = 1, message = "Le nombre d’habitants est supérieur ou égal à 1")
     private int population;
 
     private static int compteur = 1;
